@@ -1,0 +1,56 @@
+1.Static is used to access images,js,css,bootstrap
+
+2.Create Static folder
+
+3.Link DIRS in settings.py
+
+4.To apply Free CSS templates
+    -Copy that html file which we need to implement
+    -Paste in templates
+
+5.To get all image,css,bootstrap o/p
+    Copy the folder like css,js,images,plugins,bootstraps
+    Paste inside static folder
+
+6.To get image output or any css or script
+    In html file start line include
+        {% load static %}
+
+7.To get the output
+    For example general <img src="1.jpg">
+
+    But here
+    <img src="{% static '1.jpg' %}">
+
+8.To access some tags without using repeated to other pages
+    Base file some tags we need to inherit to other html files
+
+    Ex:navigation we can use all the pages this we need to inherit for all
+    html files,index,about,contact
+
+    Create one nav.html which are the tags we should inherit
+
+    Before the body tag in nav.html include
+
+    {% block content %}
+
+    {% endblock %}
+
+9.Create another html file about
+    THis Derived file we need to inherit nav
+    Delete nav tags
+    include
+    {% extends "nav.html" %}
+    {% block content %}
+
+    Add the about content
+    {% endblock %}
+
+10.In this anchor tag if u want to use href like about.html in the urls.py in apply
+ we should give 
+    path('about.html',view.about,name='about')
+
+    or give path like about
+    <a href='about'>About</a>
+
+    
