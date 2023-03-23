@@ -1,0 +1,620 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'inputform/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'inputform/css/owl.carousel.min.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'inputform/css/bootstrap.min.css' %}">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="{% static 'inputform/css/style.css' %}">
+
+  <title>Cial</title>
+
+  <style>
+    ::placeholder{font-weight: bold}
+    #para{font-weight: bold;}
+  </style>
+</head>
+
+<body>
+
+  <div class="content">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+
+          <div class="row align-items-center">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+
+              <h2 class="mb-5">Fill the form. <br> It's easy.</h2>
+              <form id="loanform" name="contactForm" action="loanpredict" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <input type="number" class="form-control" name="id" id="id" placeholder="ID" min=0 required>
+                  </div>
+
+                  <div class="col-lg-12">
+                    <div class="form-check form-check-inline">
+                      <p id='loanlimitmain' style="color:grey;"><b>Loan Limit : </b></p>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanlimit" id="loanlimit1" value='cf' checked>
+                      <label class="form-check-label" for="loanlimit1" style="color:grey;">
+                        CF
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanlimit" id="loanlimit2" value='ncf' >
+                      <label class="form-check-label" for="loanlimit2" style="color:grey;">
+                        NCF
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-14 ml-3">  
+                    <div class="form-check form-check-inline">
+                      <p id='para' style="color:grey;">Gender : </p>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" checked>
+                      <label class="form-check-label" for="gender1" style="color:grey;">
+                        Male
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
+                      <label class="form-check-label" for="gender2" style="color:grey;">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="gender3" value="other">
+                      <label class="form-check-label" for="gender3" style="color:grey;">
+                        Other
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="gender4" value="prefernottosay">
+                      <label class="form-check-label" for="gender4" style="color:grey;">
+                        Prefer not to say
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+          
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Loan approved in advance : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="approved" id="approved1" value="yes" checked>
+                    <label class="form-check-label" for="approved1" style="color:grey;">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="approved" id="approved2" value="no">
+                    <label class="form-check-label" for="approved2" style="color:grey;">
+                      No
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Loan Type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loantype" id="loantype1" value="type1" checked>
+                    <label class="form-check-label" for="loantype1" style="color:grey;">
+                      Type 1
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loantype" id="loantype2" value="type2">
+                    <label class="form-check-label" for="loantype2" style="color:grey;">
+                      Type 2
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loantype" id="loantype3" value="type3">
+                    <label class="form-check-label" for="loantype3" style="color:grey;">
+                      Type 3
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Negative Ammortization : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="negammor" id="negammor1" value="yes" checked>
+                    <label class="form-check-label" for="negammor1" style="color:grey;">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="negammor" id="negammor2" value="no">
+                    <label class="form-check-label" for="negammor2" style="color:grey;">
+                      No
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Interest Only : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="intonly" id="intonly1" value="int" checked>
+                    <label class="form-check-label" for="intonly1" style="color:grey;">
+                      Interest
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="intonly" id="intonly2" value="notint">
+                    <label class="form-check-label" for="intonly2" style="color:grey;">
+                      Not Interest
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Lump sum payment : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="lumpsum" id="lumpsum1" value="lump" checked>
+                    <label class="form-check-label" for="lumpsum1" style="color:grey;">
+                      Lump sum
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="lumpsum" id="lumpsum2" value="notlump">
+                    <label class="form-check-label" for="lumpsum2" style="color:grey;">
+                      Not lump sum
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="propval" id="propval" placeholder="Property Value"
+                    min=0 required>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Construction Type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="consttype" id="consttype1" value="sb" checked>
+                    <label class="form-check-label" for="consttype1" style="color:grey;">
+                      SB
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="consttype" id="consttype2" value="mh">
+                    <label class="form-check-label" for="consttype2" style="color:grey;">
+                      MH
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Occupancy Type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occtype" id="occtype1" value="pr" checked>
+                    <label class="form-check-label" for="occtype1" style="color:grey;">
+                      PR
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occtype" id="occtype2" value="sr">
+                    <label class="form-check-label" for="occtype2" style="color:grey;">
+                      SR
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="occtype" id="occtype3" value="ir">
+                    <label class="form-check-label" for="occtype3" style="color:grey;">
+                      IR
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Secured by : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="secby" id="secby1" value="home" checked>
+                    <label class="form-check-label" for="secby1" style="color:grey;">
+                      Home
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="secby" id="secby2" value="land">
+                    <label class="form-check-label" for="secby2" style="color:grey;">
+                      Land
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Total Units : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="totunit" id="totunit1" value="1u" checked>
+                    <label class="form-check-label" for="totunit1" style="color:grey;">
+                      1U
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="totunit" id="totunit2" value="2u">
+                    <label class="form-check-label" for="totunit2" style="color:grey;">
+                      2U
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="totunit" id="totunit3" value="3u">
+                    <label class="form-check-label" for="totunit3" style="color:grey;">
+                      3U
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="totunit" id="totunit4" value="4u">
+                    <label class="form-check-label" for="totunit4" style="color:grey;">
+                      4U
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="income" id="income" placeholder="Income" min=0
+                    required>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Credit Type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credtype" id="credtype1" value="exp" checked>
+                    <label class="form-check-label" for="credtype1" style="color:grey;">
+                      EXP
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credtype" id="credtype2" value="equi">
+                    <label class="form-check-label" for="credtype2" style="color:grey;">
+                      EQUI
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credtype" id="credtype3" value="crif">
+                    <label class="form-check-label" for="credtype3" style="color:grey;">
+                      CRIF
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credtype" id="credtype4" value="cib">
+                    <label class="form-check-label" for="credtype4" style="color:grey;">
+                      CIB
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="credscore" id="credscore" placeholder="Credit Score"
+                    min=0 required>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Security Type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sectype" id="sectype1" value="direct" checked>
+                    <label class="form-check-label" for="sectype1" style="color:grey;">
+                      Direct
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sectype" id="sectype2" value="indirect">
+                    <label class="form-check-label" for="sectype2" style="color:grey;">
+                      Indirect
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row align-items-center">
+                  <div class="col-lg-12 mb-5 mb-lg-0">
+                    <div class="form-check form-check-inline" style="float:left;">
+                      <p id='para' style="color:grey;">Loan Purpose : </p>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanpur" id="loanpur1" value="p1" checked>
+                      <label class="form-check-label" for="loanpur1" style="color:grey;">
+                        P1
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanpur" id="loanpur2" value="p2">
+                      <label class="form-check-label" for="loanpur2" style="color:grey;">
+                        P2
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanpur" id="loanpur3" value="p3">
+                      <label class="form-check-label" for="loanpur3" style="color:grey;">
+                        P3
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="loanpur" id="loanpur4" value="p4">
+                      <label class="form-check-label" for="loanpur4" style="color:grey;">
+                        P4
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Credit Worthiness : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credworth" id="credworth1" value="l1" checked>
+                    <label class="form-check-label" for="credworth1" style="color:grey;">
+                      L1
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="credworth" id="credworth2" value="l2">
+                    <label class="form-check-label" for="credworth2" style="color:grey;">
+                      L2
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Open credit : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="opencred" id="opencred1" value="open" checked>
+                    <label class="form-check-label" for="opencred1" style="color:grey;">
+                      Open
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="opencred" id="opencred2" value="notopen">
+                    <label class="form-check-label" for="opencred2" style="color:grey;">
+                      Not open
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Business : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="business" id="business1" value="yes" checked>
+                    <label class="form-check-label" for="business1" style="color:grey;">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="business" id="business2" value="no">
+                    <label class="form-check-label" for="business2" style="color:grey;">
+                      No
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='loanamount' style="color:grey;"><b>Loan amount : </b></p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loanamt" id="loanamt1" value="yes" checked>
+                    <label class="form-check-label" for="loanamt1" style="color:grey;">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="loanamt" id="loanamt2" value="no">
+                    <label class="form-check-label" for="loanamt2" style="color:grey;">
+                      No
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="rateint" id="rateint" placeholder="Rate of Interest"
+                    min=0 required>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="ratespread" id="ratespread"
+                    placeholder="Interest rate spread" min=0 required>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="upfront" id="upfront" placeholder="Upfront charges"
+                    min=0 required>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="term" id="term" placeholder="Term" min=0 required>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Co-applicant credit type : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="cocredtype" id="cocredtype1" value="cib" checked>
+                    <label class="form-check-label" for="cocredtype1" style="color:grey;">
+                      CIB
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="cocredtype" id="cocredtype2" value="exp">
+                    <label class="form-check-label" for="cocredtype2" style="color:grey;">
+                      EXP
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Age : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age0" value="25" checked>
+                    <label class="form-check-label" for="age0" style="color:grey;">
+                      &#60;25
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age1" value="34">
+                    <label class="form-check-label" for="age1" style="color:grey;">
+                      25-34
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age2" value="44">
+                    <label class="form-check-label" for="age2" style="color:grey;">
+                      35-44
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age3" value="54">
+                    <label class="form-check-label" for="age3" style="color:grey;">
+                      45-54
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age4" value="64">
+                    <label class="form-check-label" for="age4" style="color:grey;">
+                      55-64
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age5" value="74">
+                    <label class="form-check-label" for="age5" style="color:grey;">
+                      65-74
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="age" id="age6" value="80">
+                    <label class="form-check-label" for="age6" style="color:grey;">
+                      &gt;80
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Submission of application : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="subapp" id="subapp1" value="inst" checked>
+                    <label class="form-check-label" for="subapp1" style="color:grey;">
+                      To Inst
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="subapp" id="subapp2" value="notinst">
+                    <label class="form-check-label" for="subapp2" style="color:grey;">
+                      Not Inst
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="ltv" id="ltv" placeholder="Loan to Value" min=0
+                    required>
+                </div>
+
+                <div class="col-lg-14">
+                  <div class="form-check form-check-inline">
+                    <p id='para' style="color:grey;">Region : </p>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="region" id="region1" value="south" checked>
+                    <label class="form-check-label" for="region1" style="color:grey;">
+                      South
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="region" id="region2" value="north">
+                    <label class="form-check-label" for="region2" style="color:grey;">
+                      North
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="region" id="region3" value="central">
+                    <label class="form-check-label" for="region3" style="color:grey;">
+                      Central
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="region" id="region4" value="northeast">
+                    <label class="form-check-label" for="region4" style="color:grey;">
+                      North-East
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-15 mr-4 form-group">
+                  <input type="number" class="form-control" name="dtir" id="dtir" placeholder="Dept in Income Ratio"
+                    min=0 required>
+                </div>
+         
+
+                <div class="row align-items-center">
+                  <div class="col-md-10 mr-4">
+                    <input type="submit" form="loanform" value="Submit" class="btn btn-primary rounded-0 py-2 px-4">
+                    <span class="submitting"></span>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'inputform/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'inputform/js/popper.min.js' %}"></script>
+  <script src="{% static 'inputform/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'inputform/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'inputform/js/main.js' %}"></script>
+</body>
+
+</html>

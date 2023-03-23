@@ -14,6 +14,8 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content=""> 
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 <!-- style css -->
@@ -22,8 +24,6 @@
 <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 <!-- fevicon -->
 <link rel="icon" href="{% static 'images/fevicon.png' %]" type="image/gif" />
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
 <!-- Tweaks for older IEs-->
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 <!-- owl stylesheets --> 
@@ -64,8 +64,8 @@
           <h1 class="banner_taital">financial <br>Service</h1>
           <p class="banner_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever </p>
           <div class="btn_main">
-            <div class="more_bt"><a href="#">Read More </a></div>
-            <div class="contact_bt"><a href="#">Contact Us</a></div>
+            <div class="more_bt"><a href="login">Login</a></div>
+            <div class="contact_bt"><a href="inputform">Fill the Form</a></div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
           <div class="col-md-8">
             <h1 class="services_taital">WELCOME TO FINAnCIAL SERVICES</h1>
             <p class="services_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it </p>
-            <div class="moremore_bt"><a href="#">Read More </a></div>
+            <div class="moremore_bt"><a href="#">Take me there!</a></div>
           </div>
           <div class="col-md-4">
             <div><img src="{% static 'images/img-1.png' %}" class="image_1"></div>
@@ -91,7 +91,7 @@
     </div>
     <!--about section end -->
     <!--services section start -->
-    <div class="what_we_do_section layout_padding">
+    <!-- <div class="what_we_do_section layout_padding">
       <div class="container">
         <h1 class="what_taital">WHAT WE DO</h1>
         <p class="what_text">It is a long established fact that a reader will be distracted by the readable content of a </p>
@@ -132,10 +132,10 @@
         </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--services section end -->
     <!--project section start -->
-    <div class="project_section layout_padding">
+    <!-- <div class="project_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -210,7 +210,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--project section end -->
     <!--team section start -->
     <div class="team_section layout_padding">
@@ -324,32 +324,17 @@
     <div class="footer_section layout_padding">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <h4 class="about_text">About Financial</h4>
             <div class="location_text"><img src="{% static 'images/map-icon.png' %}"><span class="padding_left_15">Locations</span></div>
             <div class="location_text"><img src="{% static 'images/call-icon.png' %}"><span class="padding_left_15">+01 9876543210</span></div>
             <div class="location_text"><img src="{% static 'images/mail-icon.png' %}"><span class="padding_left_15">demo@gmail.com</span></div>
           </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <h4 class="about_text">About Financial</h4>
             <p class="dolor_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
           </div>
-          <div class="col-lg-3 col-sm-6">
-            <h4 class="about_text">Instagram</h4>
-            <div class="footer_images">
-              <div class="footer_images_left">
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-              </div>
-              <div class="footer_images_right">
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
+          <div class="col-lg-4 col-sm-6">
             <h4 class="about_text">Newsletter</h4>
             <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
             <div class="subscribe_bt"><a href="#">Subscribe</a></div>
