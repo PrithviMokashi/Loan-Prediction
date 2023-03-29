@@ -64,39 +64,8 @@
                       </label>
                     </div>
                   </div>
-
-                  <div class="col-lg-14 ml-3">  
-                    <div class="form-check form-check-inline">
-                      <p id='para' style="color:grey;">Gender : </p>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" checked>
-                      <label class="form-check-label" for="gender1" style="color:grey;">
-                        Male
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
-                      <label class="form-check-label" for="gender2" style="color:grey;">
-                        Female
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" id="gender3" value="other">
-                      <label class="form-check-label" for="gender3" style="color:grey;">
-                        Other
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" id="gender4" value="prefernottosay">
-                      <label class="form-check-label" for="gender4" style="color:grey;">
-                        Prefer not to say
-                      </label>
-                    </div>
-                  </div>
                 </div>
 
-          
                 <div class="col-lg-14">
                   <div class="form-check form-check-inline">
                     <p id='para' style="color:grey;">Loan approved in advance : </p>
@@ -432,37 +401,24 @@
                   </div>
                 </div>
 
-                <div class="col-lg-14">
-                  <div class="form-check form-check-inline">
-                    <p id='loanamount' style="color:grey;"><b>Loan amount : </b></p>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="loanamt" id="loanamt1" value="yes" checked>
-                    <label class="form-check-label" for="loanamt1" style="color:grey;">
-                      Yes
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="loanamt" id="loanamt2" value="no">
-                    <label class="form-check-label" for="loanamt2" style="color:grey;">
-                      No
-                    </label>
-                  </div>
+                <div class="col-md-15 form-group">
+                  <input type="number" class="form-control" name="loanamt" id="loanamt" placeholder="Loan Amount"
+                    min=0 required>
                 </div>
 
                 <div class="col-md-15 form-group">
                   <input type="number" class="form-control" name="rateint" id="rateint" placeholder="Rate of Interest"
-                    min=0 required>
+                    min=0 step="any" required>
                 </div>
 
                 <div class="col-md-15 form-group">
                   <input type="number" class="form-control" name="ratespread" id="ratespread"
-                    placeholder="Interest rate spread" min=0 required>
+                    min=0 step="any" placeholder="Interest rate spread" required>
                 </div>
 
                 <div class="col-md-15 form-group">
                   <input type="number" class="form-control" name="upfront" id="upfront" placeholder="Upfront charges"
-                    min=0 required>
+                    min=0 step="any" required>
                 </div>
 
                 <div class="col-md-15 form-group">
@@ -604,6 +560,10 @@
               </form>
             </div>
           </div>
+        </div>
+
+        <div class="alert alert-success" role="alert">
+            {{status}}
         </div>
 
       </div>
