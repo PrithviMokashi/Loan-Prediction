@@ -26,6 +26,7 @@
     ::placeholder{font-weight: bold}
     #para{font-weight: bold;}
   </style>
+
 </head>
 
 <body>
@@ -40,7 +41,7 @@
             <div class="col-lg-8 mb-5 mb-lg-0">
 
               <h2 class="mb-5">Fill the form. <br> It's easy.</h2>
-              <form id="loanform" name="contactForm" action="loanpredict" method="post">
+              <form id="loanform" name="contactForm" action="loanpredict" method="post" onsubmit="openModal()">
                 {% csrf_token %}
                 <div class="row">
                   <div class="col-md-10 form-group">
@@ -554,7 +555,11 @@
                   <div class="col-md-10 mr-4">
                     <input type="submit" form="loanform" value="Submit" class="btn btn-primary rounded-0 py-2 px-4">
                     <span class="submitting"></span>
+                    <button type="button" class="btn btn-primary rounded-0 py-2 px-4" data-toggle="modal" data-target="#exampleModalCenter">
+                      Show Results
+                    </button>
                   </div>
+                  
                 </div>
 
               </form>
@@ -562,8 +567,20 @@
           </div>
         </div>
 
-        <div class="alert alert-success" role="alert">
-            {{status}}
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Prediction Results:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{status}}
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

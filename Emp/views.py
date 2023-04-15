@@ -164,7 +164,6 @@ def predictLoan(request):
         deptinc_ratio = int(request.POST['dtir'])
 
         dataset = pd.read_csv(r"static/datasets/cleaned_dataset.csv")
-        # dataset = dataset.drop(['Male', 'Female', 'Joint', 'Sex Not Available'], axis=1)
         
         X_train = dataset[["id","loan_amount","rate_of_interest","interest_rate_spread","upfront_charges","term",
                             "property_value","income","credit_score","ltv","dtir1","loan_limit","approv_in_adv",
@@ -259,9 +258,9 @@ def predictLoan(request):
             south = region_dict['south']
         )
         predict.save()
-        passed = "User will not default on Loan"
+        passed = "User will not default"
         failed = "User will default"
-        result = ""
+        result = None
         if prediction_result[0] == 1:
             result = passed
         else:
