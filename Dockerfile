@@ -1,5 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.10-slim
+RUN pip install gunicorn
 
 EXPOSE 8000
 
@@ -23,3 +24,4 @@ USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "Stock.wsgi"]
+
